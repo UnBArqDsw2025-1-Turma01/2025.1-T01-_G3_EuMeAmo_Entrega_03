@@ -4,7 +4,7 @@
 
 ### __Arquitetura e Desenho de Software__
 
-#### __Entrega 2__
+#### __Entrega 3__
 
 ![logo](./docs/logo.jpeg)
 
