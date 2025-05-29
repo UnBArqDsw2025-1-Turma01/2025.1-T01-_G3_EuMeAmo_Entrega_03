@@ -1,16 +1,16 @@
-// import { UsuarioFactory } from "./factories/UsuarioFactory";
-// import { ConcreteCreatorEspecialista } from "./factories/ConcreteCreatorEspecialista";
-// import { ConcreteCreatorAluno } from "./factories/ConcreteCreatorAluno";
+import { UsuarioFactory } from "./factories/UsuarioFactory";
+import { ConcreteCreatorEspecialista } from "./factories/ConcreteCreatorEspecialista";
+import { ConcreteCreatorAluno } from "./factories/ConcreteCreatorAluno";
 
-// // Código cliente
-// function cliente(factory: UsuarioFactory) {
-//   const usuario = factory.criaUsuario();
-//   usuario.exibeUsuario();
-// }
+// Código cliente
+function cliente(factory: UsuarioFactory) {
+  const usuario = factory.criaUsuario();
+  usuario.exibeUsuario();
+}
 
-// // Teste
-// cliente(new ConcreteCreatorAluno());
-// cliente(new ConcreteCreatorEspecialista());
+// Teste
+cliente(new ConcreteCreatorAluno());
+cliente(new ConcreteCreatorEspecialista());
 
 // import { UsuarioAluno } from "./factories/UsuarioAluno";
 // import { UsuarioEspecialista } from "./factories/UsuarioEspecialista";
@@ -56,32 +56,32 @@
 //   console.log(proxyInvalido.preferenciasAluno());
 // } catch {}
 
-import { Treino } from "./CoR/Treino";
-import { TreinoConcreteHandler } from "./CoR/TreinoConcreteHandler";
-import { UsuarioEspecialista } from "./factories/UsuarioEspecialista";
+// import { Treino } from "./CoR/Treino";
+// import { TreinoConcreteHandler } from "./CoR/TreinoConcreteHandler";
+// import { UsuarioEspecialista } from "./factories/UsuarioEspecialista";
 
-const handler = new TreinoConcreteHandler();
-const especialista = new UsuarioEspecialista(
-  "Dra. Ana Souza",
-  "ana@email.com",
-  "senhaSegura",
-  "Nutrição Esportiva",
-  "123456/CRN",
-  "Especialista em dietas para atletas."
-);
+// const handler = new TreinoConcreteHandler();
+// const especialista = new UsuarioEspecialista(
+//   "Dra. Ana Souza",
+//   "ana@email.com",
+//   "senhaSegura",
+//   "Nutrição Esportiva",
+//   "123456/CRN",
+//   "Especialista em dietas para atletas."
+// );
 
-const treinoValido = new Treino(
-  "Treino A",
-  "Cardio",
-  40,
-  5,
-  "Melhorar resistência",
-  "Sem observações"
-);
-const treinoInvalido = new Treino("", "Força", 0, 10, "", "Notas adicionais");
+// const treinoValido = new Treino(
+//   "Treino A",
+//   "Cardio",
+//   40,
+//   5,
+//   "Melhorar resistência",
+//   "Sem observações"
+// );
+// const treinoInvalido = new Treino("", "Força", 0, 10, "", "Notas adicionais");
 
-console.log("Teste com treino válido:");
-especialista.criarTreino(treinoValido);
+// console.log("Teste com treino válido:");
+// especialista.criarTreino(treinoValido);
 
-console.log("\nTeste com treino inválido:");
-especialista.criarTreino(treinoInvalido);
+// console.log("\nTeste com treino inválido:");
+// especialista.criarTreino(treinoInvalido);
