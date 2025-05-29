@@ -1,14 +1,13 @@
-import express from "express";
-import swaggerUi from "swagger-ui-express";
-import swaggerJSDoc from "swagger-jsdoc";
-import { swagger } from "./config/swagger/swagger";
-import router from "./routes";
+import { UsuarioFactory } from "./factories/UsuarioFactory";
+import { ConcreteCreatorEspecialista } from "./factories/ConcreteCreatorEspecialista";
+import { ConcreteCreatorAluno } from "./factories/ConcreteCreatorAluno";
 
-const app = express();
+// Código cliente
+function cliente(factory: UsuarioFactory) {
+  const usuario = factory.criaUsuario();
+  usuario.exibeUsuario();
+}
 
-const spec = swaggerJSDoc(swagger);
-
-app.use("/api-docs", swaggerUi.serve, swaggerUi.setup(spec));
-app.use(router);
-
-export default app;
+// Teste
+cliente(new ConcreteCreatorAluno());
+cliente(new ConcreteCreatorEspecialista());
