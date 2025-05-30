@@ -13,10 +13,13 @@
   - [3. Desenho de Software (Padrões de Projeto)](PadroesDeProjeto/3.PadroesDeProjeto.md)
     - [3.1. Padrões de Projeto GoFs Criacionais](PadroesDeProjeto/3.1.GoFsCriacionais.md)
       - [3.1.1. Factory Method](PadroesDeProjeto/3.1.1.FactoryMethod.md)
+      - [3.1.2. Prototype](PadroesDeProjeto/3.1.2.Prototype.md)
     - [3.2. Padrões de Projeto GoFs Estruturais](PadroesDeProjeto/3.2.GoFsEstruturais.md)
       - [3.2.1. Decorator](PadroesDeProjeto/3.2.1.Decorator.md)
+      - [3.2.2. Bridge](PadroesDeProjeto/3.2.2.Bridge.md)
     - [3.3. Padrões de Projeto GoFs Comportamentais](PadroesDeProjeto/3.3.GoFsComportamentais.md)
       - [3.3.1. Strategy](PadroesDeProjeto/3.3.1.Strategy.md)
+      - [3.3.2. Observer](PadroesDeProjeto/3.3.2.Observer.md)
     - [3.4. Participações - Padrões de Projeto](PadroesDeProjeto/3.4.ParticipacoesPadroes.md)
     - [3.5. Iniciativas Extras - Padrões de Projeto](PadroesDeProjeto/3.5.IniciativasExtras.md)
       
