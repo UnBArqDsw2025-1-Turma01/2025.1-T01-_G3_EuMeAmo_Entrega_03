@@ -334,52 +334,55 @@ class ConteudoRepository:
         print(f"Treino '{nome}' não encontrado para remoção.")
         return False
 
-# ----- Exemplo de Uso-----
+# ----- Exemplo de Uso -----
+
 if __name__ == "__main__":
     repo = ConteudoRepository()
     iniciante_factory = InicianteConteudoFactory()
+    avancado_factory = AvancadoConteudoFactory()
     
-    # Criar um artigo template e modificá-lo
-    artigo_template_iniciante = iniciante_factory.createArtigo()
-    print("--- Template Original do Artigo Iniciante ---")
-    artigo_template_iniciante.exibir()
+    # 1. Criar um artigo de iniciante (usado como template original)
+    print("### CRIANDO ARTIGO INICIANTE (TEMPLATE ORIGINAL) ###")
+    artigo_iniciante_original = iniciante_factory.createArtigo()
+    artigo_iniciante_original.exibir()
+    repo.adicionarArtigo(artigo_iniciante_original)
     
-    artigo_template_iniciante.setTitulo("Guia Essencial de Nutrição para Iniciantes")
-    artigo_template_iniciante.setDescricao("Aprenda os conceitos básicos de nutrição para começar bem.")
-    artigo_template_iniciante.setAutor("Nutricionista Esportivo")
-    print("\n--- Template Modificado do Artigo Iniciante ---")
-    artigo_template_iniciante.exibir()
-    repo.adicionarArtigo(artigo_template_iniciante)
-    
-    print("-" * 30)
+    print("\n" + "=" * 50 + "\n")
 
-    # Criar um treino template e modificá-lo
-    treino_template_iniciante = iniciante_factory.createTreino()
-    print("\n--- Template Original do Treino Iniciante (via interface) ---")
-    print(f"Nome: {treino_template_iniciante.getNome()}")
-    print(f"Descrição: {treino_template_iniciante.getDescricao()}")
-    print(f"Tipo: {treino_template_iniciante.getTipoTreino()}")
+    # 2. Criar um treino avançado (template original)
+    print("### CRIANDO TREINO AVANÇADO (TEMPLATE ORIGINAL E MODIFICAÇÃO) ###")
+    treino_avancado_template = avancado_factory.createTreino()
     
-    # Para ver detalhes completos, se a instância for do tipo concreto
-    if isinstance(treino_template_iniciante, TreinoIniciante):
-        print("\n--- Template Original do Treino Iniciante (detalhes completos) ---")
-        treino_template_iniciante.exibirDetalhesCompletos()
+    # Exibir detalhes completos do template original (se for instância de TreinoAvancado)
+    if isinstance(treino_avancado_template, TreinoAvancado):
+        print("--- Template Original do Treino Avançado (detalhes completos) ---")
+        treino_avancado_template.exibirDetalhesCompletos()
 
-    treino_template_iniciante.setNome("Meu Primeiro Mês na Academia")
-    treino_template_iniciante.setDescricao("Um plano de treino para as primeiras 4 semanas, focado em adaptação.")
-    treino_template_iniciante.setTipoTreino("Adaptação Geral")
-    treino_template_iniciante.setEquipamentosNecessarios(["Halteres Leves", "Colchonete", "Banda Elástica"])
+
+    novo_nome_treino_avancado = "Desafio de Elite: Super Séries"
+    print(f"\n--- Modificando nome do Treino Avançado para: '{novo_nome_treino_avancado}' ---")
+    treino_avancado_template.setNome(novo_nome_treino_avancado)
     
 
-    print("\n--- Template Modificado do Treino Iniciante (via interface) ---")
-    print(f"Nome: {treino_template_iniciante.getNome()}")
-    print(f"Descrição: {treino_template_iniciante.getDescricao()}")
-    print(f"Tipo: {treino_template_iniciante.getTipoTreino()}")
+    if isinstance(treino_avancado_template, TreinoAvancado):
+        print("\n--- Template Modificado do Treino Avançado (detalhes completos) ---")
+        treino_avancado_template.exibirDetalhesCompletos()
     
-    if isinstance(treino_template_iniciante, TreinoIniciante):
-        print("\n--- Template Modificado do Treino Iniciante (detalhes completos) ---")
-        treino_template_iniciante.exibirDetalhesCompletos()
-    repo.adicionarTreino(treino_template_iniciante)
 
-    print(f"\nTotal de artigos no repo: {len(repo.listarTodosArtigos())}")
-    print(f"Total de treinos no repo: {len(repo.listarTodosTreinos())}")
+    repo.adicionarTreino(treino_avancado_template)
+
+    print("\n" + "=" * 50)
+    print("\n--- Conteúdo Final no Repositório ---")
+    print(f"Total de artigos no repo: {len(repo.listarTodosArtigos())}")
+    for artigo in repo.listarTodosArtigos():
+        print(f"  - Artigo: {artigo.getTitulo()} por {artigo.getAutor()}")
+    
+    print(f"\nTotal de treinos no repo: {len(repo.listarTodosTreinos())}")
+    for treino in repo.listarTodosTreinos():
+        print(f"  - Treino: {treino.getNome()} (Nível: {treino.getNivelDificuldade()})")
+      
+        if isinstance(treino, TreinoAvancado):
+             print("    Detalhes via método da classe concreta:")
+             treino.exibirDetalhesCompletos() 
+        elif isinstance(treino, TreinoIniciante):
+             treino.exibirDetalhesCompletos()
