@@ -1,0 +1,35 @@
+{
+    "name": "projetoeumeamo",
+    "short_name": "projetoeumeamo",
+    "start_url": ".",
+    "display": "standalone",
+    "background_color": "#0175C2",
+    "theme_color": "#0175C2",
+    "description": "Projeto G3 - Eu Me Amo é uma iniciativa voltada ao bem-estar físico e emocional, inspirada em plataformas e materiais informativos sobre autocuidado. O objetivo do projeto é promover hábitos saudáveis por meio de conteúdos que incentivam uma boa postura, a prática regular de exercícios físicos, o equilíbrio mental e o amor-próprio.",
+    "orientation": "portrait-primary",
+    "prefer_related_applications": false,
+    "icons": [
+        {
+            "src": "icons/Icon-192.png",
+            "sizes": "192x192",
+            "type": "image/png"
+        },
+        {
+            "src": "icons/Icon-512.png",
+            "sizes": "512x512",
+            "type": "image/png"
+        },
+        {
+            "src": "icons/Icon-maskable-192.png",
+            "sizes": "192x192",
+            "type": "image/png",
+            "purpose": "maskable"
+        },
+        {
+            "src": "icons/Icon-maskable-512.png",
+            "sizes": "512x512",
+            "type": "image/png",
+            "purpose": "maskable"
+        }
+    ]
+}
